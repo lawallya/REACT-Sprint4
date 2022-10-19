@@ -1,7 +1,10 @@
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result =  ???;
-  console.log("EXERCICE 1 ->", result);
+  console.log(getAllDirectors);
+  const result = movies.map(pelicula => pelicula.director);
+  result.sort();
+  //console.table(result);//devuelve el array con los directores ordenados alfabéticamente, pero sin simplificar
+
   return result;
 }
 
