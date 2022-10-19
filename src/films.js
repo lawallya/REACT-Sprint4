@@ -105,6 +105,33 @@ function moviesAverageByCategory() {
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
+  function hoursToMinutes(array) {
+    console.log("hoursToMinutes");
+    const peliculasEnMinutos = array.filter(item => item.duration = generarArrayTiempo(item.duration));
+    console.table(peliculasEnMinutos);
+}
+
+//const peliculasHoras = array.map((movie) => { movie.duration.replace(/h/gi, "") });//quito la h
+//const peliculasMinutos = peliculasHoras.map((movie) => { movie.duration.replace(/min/gi, "") });//quito la  min
+//¿PORQUE NO FUNCINAN LAS EXP REG?
+function generarArrayTiempo(string) {//OK, PERO HAY QUE SIMPLIFICAR
+    console.log("generarArrayTiempo");
+
+    let tiempoFinal = 0;
+    if (string.includes("h") && string.includes("min")) {
+        let sinHoras = string.replace("h", "");//quito el caracter h, si lo hago con un parseInt pierdo la parte de min 
+        let sinMinutos = sinHoras.replace("min", "");//quito el caracter min
+        const tiempo = sinMinutos.split(" "); // ahora en duration hay un arry de long 2
+        tiempoFinal = parseInt(tiempo[0] * 60) + parseInt(tiempo[1]);
+    } else if (string.includes("h") && !string.includes("min")) {//solo hay  horas
+        tiempoFinal = parseInt(string);
+        tiempoFinal *= 60;
+    } else if (!string.includes("h") && !string.includes("min")) {//solo hay  minutos
+        tiempoFinal = parseInt(string);
+    }
+    return tiempoFinal;
+}
+
 
 }
 
