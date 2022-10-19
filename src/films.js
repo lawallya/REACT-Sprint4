@@ -32,13 +32,17 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  const puntuacionesFiltradas = array.map(movie => movie.score).filter(item => item !== undefined); //genero un array 
-  //de puntuaciones válidas
-  let total = puntuacionesFiltradas.reduce((ac, item) => { return ac += item });
-  let long = puntuacionesFiltradas.length;
-  let media = parseFloat((total / long).toFixed(2));
-  console.log(media);
-  return media; 
+   //no son dos pasos uno detrás del otro, es en caso de que el año sea el mismo entonces ordena alfabéticamente    
+   const peliculasOrdenadas = array.sort((a, b) => {
+    if (a.year > b.year) { return 1 }
+    if (a.year === b.year) {
+        let ac = (a.title > b.title) ? 1 : -1;
+        return ac;
+    }//estoy suponiendo que no hay 2 peliculas que se llamen igual
+    if (a.year < b.year) { return -1 }
+});
+console.table(peliculasOrdenadas);
+return peliculasOrdenadas;
 }
 
 // Exercise 5: Order by year, ascending
