@@ -137,7 +137,18 @@ function generarArrayTiempo(string) {//OK, PERO HAY QUE SIMPLIFICAR
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
-  
+  console.log("bestFilmOfYear");
+  // const peliculasAño = getMoviesFromProperty(movies, "year", año);
+  const peliculasAño = movies.filter((movie) => movie.year === año);
+  console.table(peliculasAño);
+  const mejorPelicula = peliculasAño.sort((a, b) => { return b.score - a.score }); //ordena en orden descendente
+  console.table(mejorPelicula);
+  let maxPuntuacion = mejorPelicula[0].score;
+  console.log(maxPuntuacion);
+  const mejoresPeliculas = mejorPelicula.filter(movie => movie.score === maxPuntuacion);
+  //  por si acaso hay varias pelis en un mismo año con la puntuacion maxima, las muestro todas 
+
+  return mejoresPeliculas; 
 }
 
 
