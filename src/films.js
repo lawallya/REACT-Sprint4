@@ -32,17 +32,17 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-   //no son dos pasos uno detrás del otro, es en caso de que el año sea el mismo entonces ordena alfabéticamente    
-   const peliculasOrdenadas = array.sort((a, b) => {
-    if (a.year > b.year) { return 1 }
-    if (a.year === b.year) {
-        let ac = (a.title > b.title) ? 1 : -1;
-        return ac;
-    }//estoy suponiendo que no hay 2 peliculas que se llamen igual
-    if (a.year < b.year) { return -1 }
-});
-console.table(peliculasOrdenadas);
-return peliculasOrdenadas;
+  console.log("orderAlphabetically");
+  const titulosPeliculas = array.map(movie => movie.title.toLowerCase());//devuelve un array con solo los títulos
+  console.table(titulosPeliculas);
+  //las pongo en minusculas para que ordene alfabeticamente correctamente, que no ponga ET antes que El niño 
+  //las ordeno alfabéticamente:
+  titulosPeliculas.sort();
+  //solo mostrar las 20 primeras peliculas 
+  const primerasPeliculas = titulosPeliculas.filter((element, index) => index < 20);
+
+  console.table(primerasPeliculas);
+  return primerasPeliculas;
 }
 
 // Exercise 5: Order by year, ascending
