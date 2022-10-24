@@ -75,17 +75,17 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(array) {
 //no son dos pasos uno detrás del otro, es en caso de que el año sea el mismo entonces ordena alfabéticamente    
 const peliculasOrdenadas = array.sort((a, b) => {
   if (a.year > b.year) { return 1 }
   if (a.year === b.year) {
       let ac = (a.title > b.title) ? 1 : -1;
       return ac;
-  }//estoy suponiendo que no hay 2 peliculas que se llamen igual
+  }//estoy suponiendo que no hay 2 peliculas que se llamen igual, por eso no aparece el 0
   if (a.year < b.year) { return -1 }
 });
-console.table(peliculasOrdenadas);
+
 return peliculasOrdenadas;
 }
 
